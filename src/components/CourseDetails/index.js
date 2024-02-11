@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-import {Link} from 'react-router-dom'
 import Header from '../Header'
 
 import './index.css'
@@ -30,25 +29,28 @@ class CourseDetails extends Component {
       method: 'GET',
     }
     const response = await fetch(apiUrl, option)
+    console.log(response.status)
     if (response.ok) {
-      const fetchedData = await response.json()
+      const data = await response.json()
       const updatedData = {
-        id: fetchedData.course_details.id,
-        name: fetchedData.course_details.name,
-        imageUrl: fetchedData.course_details.image_url,
-        description: fetchedData.course_details.description,
+        id: data.course_details.id,
+        name: data.course_details.name,
+        imageUrl: data.course_details.image_url,
+        description: data.course_details.description,
       }
-
       this.setState({
         courseDetails: updatedData,
         apiStatus: apiStatusConstants.success,
       })
-    }
-    if (response.status === 404) {
+    } else {
       this.setState({
         apiStatus: apiStatusConstants.failure,
       })
     }
+  }
+
+  onClickCourse = () => {
+    this.getCourseDetails()
   }
 
   renderCoursesDetails = () => {
@@ -73,19 +75,23 @@ class CourseDetails extends Component {
     </div>
   )
 
-  renderFailure = () => (
-    <div className="failure-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
-        alt="failure view"
-      />
-      <h1>Oops! Something Went Wrong</h1>
-      <p>We cannot seem to find the page your looking for.</p>
-      <Link to="/" className="link">
-        <button type="button">Retry</button>
-      </Link>
-    </div>
-  )
+  renderFailure = () => {
+    console.log('failure view')
+    return (
+      <div className="failure-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/tech-era/failure-img.png"
+          alt="failure view"
+        />
+        <h1>Oops! Something Went Wrong</h1>
+        <p>We cannot seem to find the page you are looking for</p>
+
+        <button type="button" onClick={this.onClickCourse}>
+          Retry
+        </button>
+      </div>
+    )
+  }
 
   renderDetails = () => {
     const {apiStatus} = this.state
