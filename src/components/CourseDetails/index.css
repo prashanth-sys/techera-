@@ -1,0 +1,37 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+}
+.course-container {
+  background-color: #ffffff;
+  margin: 5px;
+  display: flex;
+  margin-top: 10%;
+  margin-left: 15%;
+  width: 50%;
+  height: 40%;
+}
+.course-image {
+  width: 20%;
+  height: 40%;
+}
+.heading {
+  font-family: 'Roboto';
+  font-size: 19px;
+  color: #1e293b;
+  margin-left: 19px;
+}
+.description {
+  font-family: 'Roboto';
+  margin-left: 19px;
+  color: #475569;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

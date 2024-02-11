@@ -1,0 +1,15 @@
+.bg-container {
+  font-family: 'Roboto';
+}
+.courses-heading {
+  font-family: 'Roboto';
+  color: #1e293b;
+  margin-left: 95px;
+  margin-top: 19px;
+}
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 95px;
+  margin-right: 95px;
+}

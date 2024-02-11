@@ -1,0 +1,23 @@
+.list-items {
+  list-style-type: none;
+  width: 20%;
+  padding: 22px;
+}
+.list-container {
+  font-size: 'Roboto';
+  display: flex;
+  margin: 0px;
+  align-items: center;
+}
+.course-logo {
+  width: 30%;
+  margin-right: 9px;
+}
+.logo-name {
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #1e293b;
+}
+.link {
+  text-decoration: none;
+}
